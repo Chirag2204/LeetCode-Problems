@@ -21,7 +21,6 @@ public:
                stringstream str(s);
                int x;
                str>>x;
-               cout<<x<<endl;
                st.push(x);
            }
        }
