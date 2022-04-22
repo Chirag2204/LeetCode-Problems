@@ -23,7 +23,7 @@ public:
        for(auto i:hashmap){
            
                 if(i.first==key){
-                    cout<<i.first<<"-> "<<i.second<<endl;
+                    
                     return i.second;
             } 
        }
