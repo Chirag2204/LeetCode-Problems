@@ -33,7 +33,7 @@ public:
             t.push_back(t1.top());
             t1.pop();
         }
-        cout<<s<<" "<<t<<endl;
+       
         return s==t;
     }
 };
