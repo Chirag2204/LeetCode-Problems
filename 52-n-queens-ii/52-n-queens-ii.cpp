@@ -17,15 +17,15 @@ public:
         return true;
     }
     
-    void solve(vector<vector<string>>& ans,vector<string> q,int row,int n){
+    void solve(int& count,vector<string> q,int row,int n){
         if(row==n){
-            ans.push_back(q);
+            count++;
             return ;
         }
         for(int j=0;j<n;j++){
             if(check(q,row,j,n)){
                q[row][j]='Q';
-                solve(ans,q,row+1,n);
+                solve(count,q,row+1,n);
                 q[row][j]='.'; //backtracking
            }
          }  
@@ -35,7 +35,8 @@ public:
     int totalNQueens(int n) {
          vector<vector<string>> ans;
         vector<string>q (n,string(n,'.'));
-        solve(ans,q,0,n);
-        return ans.size();
+        int count=0;
+        solve(count,q,0,n);
+        return count;
     }
 };
