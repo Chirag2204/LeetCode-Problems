@@ -1,6 +1,6 @@
 class Solution {
 public:
-    static long long getDist(vector<int> p1){
+    static long long getDist(vector<int>& p1){
         return pow(p1[0],2)+pow(p1[1],2);
     }
     vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
@@ -15,7 +15,7 @@ public:
         return ans;
     }
     
-    static bool compareDist(vector<int> v1,vector<int> v2){
+    static bool compareDist(vector<int>& v1,vector<int>& v2){
        
         return getDist(v1)<getDist(v2);
     }
