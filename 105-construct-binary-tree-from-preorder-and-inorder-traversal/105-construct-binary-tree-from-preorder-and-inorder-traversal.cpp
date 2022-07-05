@@ -11,11 +11,9 @@
  */
 class Solution {
 public:
+    map<int,int> m;
     int getPosition(vector<int>& inorder,int& x){
-        for(int i=0;i<inorder.size();i++)
-            if(inorder[i]==x)
-                return i;
-        
+        if(m.count(x))return m[x];
         return -1;
     }
     
@@ -37,6 +35,8 @@ public:
     
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
         int preOrderIndex=0;
+        for(int i=0;i<inorder.size();i++)
+            m[inorder[i]]=i;
         return solve(preorder,inorder,preOrderIndex,0,preorder.size()-1);
     }
 };
