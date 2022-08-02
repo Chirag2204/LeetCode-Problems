@@ -18,7 +18,7 @@ public:
         int s=matrix[0][0],e=matrix[n-1][n-1];
         
         int mid=s+(e-s)/2;
-        while(s<e){
+        while(s<=e){
 
             int pos=0;
             for(int i=0;i<n;i++){
@@ -27,7 +27,7 @@ public:
             if(pos<k){
                 s=mid+1;
             }else{
-                e=mid;
+                e=mid-1;
             }
             mid=s+(e-s)/2;
         }
