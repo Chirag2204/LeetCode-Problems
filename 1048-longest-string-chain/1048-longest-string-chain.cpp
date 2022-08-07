@@ -11,15 +11,13 @@ public:
             }else i++;
             j++;
         }
-        // cout<<a<<" "<<b<<endl;
         return true;
     }
     
     int solve(vector<string>& words,int index,int prev,vector<int>& dp){
        if(index>=words.size())return 0;
-        if(dp[prev]!=-1)return dp[index];
+        if(dp[prev]!=-1)return dp[prev];
         int include=0;
-        // cout<<prev<<" "<<words[index]<<endl;
         if(prev==0 || check(words[prev-1],words[index])){
             include=1+solve(words,index+1,index+1,dp);
         }
