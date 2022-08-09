@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void dfs(map<int,unordered_set<int>> &m,vector<int>& visited,int val){
+    void dfs(map<int,vector<int>> &m,vector<int>& visited,int val){
         if(visited[val])return ;
         visited[val]=1;
         for(auto& x:m[val]){
@@ -9,13 +9,13 @@ public:
     }
     
     int findCircleNum(vector<vector<int>>& nums) {
-      map<int,unordered_set<int>> m;
+      map<int,vector<int>> m;
         int n=nums.size();
       for(int i=0;i<n;i++){
           for(int j=0;j<n;j++){
               if(nums[i][j]){
-                 m[i].insert(j);
-                  m[j].insert(i);
+                 m[i].push_back(j);
+                  m[j].push_back(i);
               }
           }
       }
