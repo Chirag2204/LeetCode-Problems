@@ -4,7 +4,7 @@ public:
         int i=0,j=0;
         unordered_map<string,int> m;
         unordered_map<string,int> temp;
-        for(string word:words){
+        for(string& word:words){
             m[word]++;
             temp[word]++;
         }
