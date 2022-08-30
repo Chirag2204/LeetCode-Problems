@@ -7,13 +7,14 @@ public:
         vector<vector<int>>visited(grid.size(),vector<int>(grid[0].size(),0));
         q.push({{0,0},1});
         visited[0][0]=1;
+         vector<vector<int>> dir={{-1,0},{1,0},{-1,-1},{0,1},{0,-1},{1,1},{-1,1},{1,-1}};
         while(!q.empty()){
             int x=q.front().first.first;
             int y=q.front().first.second;
             int dist=q.front().second;
             
             q.pop();
-            vector<vector<int>> dir={{-1,0},{1,0},{-1,-1},{0,1},{0,-1},{1,1},{-1,1},{1,-1}};
+           
             for(int i=0;i<8;i++){
                 int newx=x+dir[i][0];
                 int newy=y+dir[i][1];
