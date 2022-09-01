@@ -11,21 +11,22 @@
  */
 class Solution {
 public:
-    void solve(TreeNode* root,int maxi,int& count){
+    stack<int> maxi;
+    int count=0;
+    void solve(TreeNode* root){
         if(root==NULL)return ;
-        if(root->val>=maxi){
-            maxi=root->val;
-            count++;
-        }
-        solve(root->left,maxi,count);
-        solve(root->right,maxi,count);
-        
+        if(maxi.empty())
+        maxi.push(root->val);
+        else maxi.push(max(root->val,maxi.top()));
+        solve(root->left);
+        solve(root->right);
+        if(root->val==maxi.top())count++;
+        maxi.pop();
     }
     
     int goodNodes(TreeNode* root) {
         if(root==NULL)return 0;
-        int count=0;
-        solve(root,INT_MIN,count);
+        solve(root);
         return count;
     }
 };
