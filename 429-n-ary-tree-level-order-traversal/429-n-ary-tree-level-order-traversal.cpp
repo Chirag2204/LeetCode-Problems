@@ -40,7 +40,7 @@ public:
             }else{
                 topush.push_back(temp->val);
                
-                    for(auto x:temp->children){
+                    for(auto& x:temp->children){
                         q.push(x);
                     }
                 
