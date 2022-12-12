@@ -6,7 +6,7 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
-    int isPossible(int arr[],int &n,int& k,int& x){
+    bool isPossible(int arr[],int &n,int& k,int& x){
         int sum=0;
         int count=0;
         
@@ -18,9 +18,9 @@ class Solution {
             }
             sum+=arr[i];
         }
-        if(count>=k)return false;
-        if(count<k-1)return 2;
-        return count==k-1;
+      
+        
+        return count<=k-1;
     }
     
     int splitArray(int arr[] ,int n, int k) {
@@ -34,7 +34,7 @@ class Solution {
         int ans=-1;
         while(s<=e){
           
-            int res=isPossible(arr,n,k,mid);
+           bool res=isPossible(arr,n,k,mid);
              //cout<<mid<<" "<<res<<endl;
             if(res){
                 // if(res==1)
