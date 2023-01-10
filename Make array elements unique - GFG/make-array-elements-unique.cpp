@@ -10,20 +10,36 @@ using namespace std;
 class Solution {
   public:
     long long int minIncrements(vector<int> arr, int N) {
+        // long long ans=0;
+        // unordered_set<int> s;
+        // long long prev=0;
+        
+        // sort(arr.begin(),arr.end());
+        
+        // for(int &i:arr){
+        //     if(!s.count(i)){
+        //         s.insert(i);
+        //         prev=i;
+        //     }else{
+        //         ans+= abs(i-prev)+1;
+        //         prev++;
+        //         s.insert(prev);
+        //     }
+        // }
+        // return ans;
+        
+        //alternate
         long long ans=0;
         unordered_set<int> s;
-        long long prev=0;
-        
         sort(arr.begin(),arr.end());
         
-        for(int &i:arr){
-            if(!s.count(i)){
-                s.insert(i);
-                prev=i;
-            }else{
-                ans+= abs(i-prev)+1;
-                prev++;
-                s.insert(prev);
+        for(int& i:arr){
+            if(!s.count(i))s.insert(i);
+            else{
+                int j=0;
+                while(s.count(i+j))j++;
+                s.insert(i+j);
+                ans+=j;
             }
         }
         return ans;
